@@ -1,0 +1,27 @@
+name: Daily Verse Update
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # Runs daily at 07:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update-verse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run verse updater script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          PAGE_ID: ${{ secrets.PAGE_ID }}
+        run: python update_verse.py
