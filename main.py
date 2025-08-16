@@ -199,4 +199,4 @@ function fakeCheckout(){if(cart.length===0){alert('Cart is empty!'); return;} al
 renderProducts();
 </script>
 </body>
-</html>
+</html> 
