@@ -167,7 +167,8 @@ function updateModalPrice(){
 }
 
 function closeModal(){document.getElementById('productModal').style.display='none';}
-function addModalToCart(){in
+
+function addModalToCart(){
   const color=document.getElementById('modalColor').value;
   const storage=document.getElementById('modalStorage').value;
   const quantity=parseInt(document.getElementById('modalQuantity').value);
@@ -176,7 +177,9 @@ function addModalToCart(){in
   updateCart();
   closeModal();
 }
+
 function toggleCart(){document.getElementById('cartSidebar').classList.toggle('active');}
+
 function updateCart(){
   const cartCount=document.getElementById('cart-count');
   cartCount.textContent=cart.reduce((a,b)=>a+b.quantity,0);
@@ -194,8 +197,20 @@ function updateCart(){
   });
   document.getElementById('cartTotal').textContent='Total: R'+total;
 }
+
 function removeFromCart(index){cart.splice(index,1); updateCart();}
-function fakeCheckout(){if(cart.length===0){alert('Cart is empty!'); return;} alert('✅ Thank you for your purchase! (Demo)'); cart=[]; updateCart(); toggleCart();}
+
+function fakeCheckout(){
+  if(cart.length===0){alert('Cart is empty!'); return;}
+  alert('✅ Thank you for your purchase! (Demo)');
+  cart=[];
+  updateCart();
+  toggleCart();
+}
+
+// Prevent logo clicks from affecting modal/cart
+document.querySelector('.logo img').addEventListener('click', e => e.stopPropagation());
+
 renderProducts();
 </script>
 </body>
