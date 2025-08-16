@@ -9,14 +9,14 @@
   * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
   body {background:#f4f4f9; color:#333;}
   header {display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#006064; color:white; position:sticky; top:0; z-index:10;}
-  .logo {font-size:1.5rem; font-weight:700; color:#ffca28; cursor:pointer;}
+  .logo img {height:50px; cursor:pointer;}
   .cart {cursor:pointer; position:relative; font-weight:600;}
   .cart span {background:crimson; color:white; font-size:12px; border-radius:50%; padding:3px 8px; position:absolute; top:-8px; right:-10px; transition:transform 0.2s;}
   .cart span.bounce {transform:scale(1.3);}
   .products {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:20px;}
   .product-card {background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); cursor:pointer; transition:transform 0.3s;}
   .product-card:hover {transform:translateY(-5px);}
-  .product-card img {width:100%; height:200px; object-fit:cover; background:#f9f9f9;}
+  .product-card img {width:100%; height:200px; object-fit:contain; background:#f9f9f9;}
   .product-info {padding:15px;}
   .product-info h3 {margin-bottom:5px; font-size:1.1rem; color:#004d40;}
   .product-info p {font-size:0.9rem; margin-bottom:5px;}
@@ -38,9 +38,9 @@
     z-index:10;
   }
   .modal-images {display:flex; gap:10px; margin-bottom:15px; overflow-x:auto;}
-  .modal-images img {width:80px; height:80px; object-fit:cover; cursor:pointer; border:2px solid transparent; border-radius:8px;}
+  .modal-images img {width:80px; height:80px; object-fit:contain; cursor:pointer; border:2px solid transparent; border-radius:8px;}
   .modal-images img.selected {border-color:#007bff;}
-  .main-image {width:100%; height:300px; object-fit:cover; margin-bottom:15px;}
+  .main-image {width:100%; height:300px; object-fit:contain; margin-bottom:15px;}
   .modal-details h2 {margin-bottom:10px; color:#004d40;}
   .modal-details p {margin-bottom:8px; font-size:0.95rem;}
   .modal-details select, .modal-details input {width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;}
@@ -60,8 +60,8 @@
 </head>
 <body>
 <header>
-  <div style="display:flex; align-items:center;">
-    <div class="logo">Andros Tech Solutions</div>
+  <div class="logo">
+    <img src="IMG_1200.png" alt="Andros Tech Solutions Logo">
   </div>
   <div class="cart" onclick="toggleCart()">🛒 Cart <span id="cart-count">0</span></div>
 </header>
@@ -98,14 +98,14 @@
 
 <script>
 let productsDataList = [
-  {name:'iPhone 7 Plus', basePrice:3750, battery:'90%', colors:['Black','Silver'], storages:[{size:'128GB',price:3750}], images:['https://via.placeholder.com/200x200?text=iPhone+7+Plus']},
-  {name:'iPhone 8 Plus', basePrice:3850, battery:'91%', colors:['Black','Silver','Gold'], storages:[{size:'64GB',price:3850}], images:['https://via.placeholder.com/200x200?text=iPhone+8+Plus']},
-  {name:'iPhone XR', basePrice:4150, battery:'92%', colors:['Red','Blue','Black'], storages:[{size:'64GB',price:4150},{size:'128GB',price:4500}], images:['https://via.placeholder.com/200x200?text=iPhone+XR']},
-  {name:'iPhone 11', basePrice:6500, battery:'94%', colors:['Purple','Yellow','Black'], storages:[{size:'64GB',price:6500}], images:['https://via.placeholder.com/200x200?text=iPhone+11']},
-  {name:'iPhone 12', basePrice:7500, battery:'90%', colors:['Blue','Black'], storages:[{size:'64GB',price:7500}], images:['https://via.placeholder.com/200x200?text=iPhone+12']},
-  {name:'iPhone 13 Pro', basePrice:11800, battery:'92%', colors:['Silver','Graphite'], storages:[{size:'128GB',price:11800}], images:['https://via.placeholder.com/200x200?text=iPhone+13+Pro']},
-  {name:'iPhone 14', basePrice:12800, battery:'95%', colors:['Blue','Midnight','Starlight'], storages:[{size:'128GB',price:12800}], images:['https://via.placeholder.com/200x200?text=iPhone+14']},
-  {name:'iPhone 15', basePrice:15850, battery:'96%', colors:['Black','Silver'], storages:[{size:'128GB',price:15850}], images:['https://via.placeholder.com/200x200?text=iPhone+15']}
+  {name:'iPhone 7 Plus', basePrice:3750, battery:'90%', colors:['Black','Silver'], storages:[{size:'128GB',price:3750}], images:['IMG_7PLUS.png']},
+  {name:'iPhone 8 Plus', basePrice:3850, battery:'91%', colors:['Black','Silver','Gold'], storages:[{size:'64GB',price:3850}], images:['IMG_8PLUS.png']},
+  {name:'iPhone XR', basePrice:4150, battery:'92%', colors:['Red','Blue','Black'], storages:[{size:'64GB',price:4150},{size:'128GB',price:4500}], images:['IMG_XR64.png','IMG_XR128.png']},
+  {name:'iPhone 11', basePrice:6500, battery:'94%', colors:['Purple','Yellow','Black'], storages:[{size:'64GB',price:6500}], images:['IMG_11.png']},
+  {name:'iPhone 12', basePrice:7500, battery:'90%', colors:['Blue','Black'], storages:[{size:'64GB',price:7500}], images:['IMG_12.png']},
+  {name:'iPhone 13 Pro', basePrice:11800, battery:'92%', colors:['Silver','Graphite'], storages:[{size:'128GB',price:11800}], images:['IMG_13PRO.png']},
+  {name:'iPhone 14', basePrice:12800, battery:'95%', colors:['Blue','Midnight','Starlight'], storages:[{size:'128GB',price:12800}], images:['IMG_14.png']},
+  {name:'iPhone 15', basePrice:15850, battery:'96%', colors:['Black','Silver'], storages:[{size:'128GB',price:15850}], images:['IMG_15.png']}
 ];
 
 let cart=[];
